@@ -18,9 +18,7 @@
             <tbody>
                 @for (int index = 0; index < Model?.DataResult?.Length / 3; index++)
                 {
-@*                @if(Model?.DataResult?[index,0] != null)
-                {
-*@                        @if(Model.DataResult[index,2] != null)
+                    @if(Model.DataResult[index,2] != null)
                         {
                             <tr>
                                 <td rowspan="2" style="vertical-align:middle">
@@ -49,7 +47,6 @@
                             </tr>
                         }
                     }
-                @*}*@
             </tbody>
         </table>
     </div>
