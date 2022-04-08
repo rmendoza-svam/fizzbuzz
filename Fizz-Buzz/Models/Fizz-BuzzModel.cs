@@ -19,7 +19,6 @@
         {
             for(int index = 0; index < this.Data.Length; index++)
             {
-                //decimal number = decimal.MinValue;
                 if (this.Data[index] == null)
                     this.DataResult[index, 0] = "<Empty>";
                 else
