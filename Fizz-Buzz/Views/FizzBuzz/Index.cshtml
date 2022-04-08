@@ -1,0 +1,49 @@
+﻿@model Fizz_Buzz.Models.Fizz_BuzzModel
+
+@{
+    ViewData["Title"] = "Fizz - Buzz";
+}
+
+    <div class="row">
+        Input values (Multiple of 3 or 5) 
+    <hr />
+    <form method="post" asp-action="Calculate" asp-controller="FizzBuzz" enctype="multipart/form-data">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div>
+            <table id="tblProducts">
+                <thead>
+                    <tr>
+                        <th align="left" >Value</th>
+                        <th align="center" >            
+                        </th>
+                    </tr>
+                    @{int index = 0;}
+                    @foreach (var valueInput in Model?.Data)
+                    {
+                        <tr>
+                        <td>
+                        <input id="inputValue" name="inputValue" data-value="@valueInput" value="@valueInput">
+                        </td>
+                        </tr>                            
+                    }
+                    <input type="hidden" id="rowCounter" value="@index" />
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <hr/>
+        <div >
+            <input type="button" id="AddValue" value="Add New Value" class="btn btn-primary" />
+            <input type="submit" id="Submit" value="Submit" class="btn btn-primary" />
+        </div>
+    </form>
+    </div>
+
+<div>
+    <a asp-controller="Home" asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

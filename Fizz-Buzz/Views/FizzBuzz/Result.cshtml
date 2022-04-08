@@ -1,0 +1,59 @@
+﻿@model Fizz_Buzz.Models.Fizz_BuzzModel
+
+@{
+    ViewData["Title"] = "Result";
+}
+
+<h4>Result</h4>
+
+<hr />
+    <div>
+        <table id="tblProducts" class="table table-bordered">
+            <thead style="background-color: aliceblue">
+                <tr>
+                    <th style="text-align:center">Value</th>
+                    <th style="text-align:center">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int index = 0; index < Model?.DataResult?.Length / 3; index++)
+                {
+@*                @if(Model?.DataResult?[index,0] != null)
+                {
+*@                        @if(Model.DataResult[index,2] != null)
+                        {
+                            <tr>
+                                <td rowspan="2" style="vertical-align:middle">
+                                @Model.DataResult[index,0]
+                                </td>
+                                <td>
+                                    @Model.DataResult[index,1]
+                               </td>
+                            </tr>
+                        }else{
+                            <tr>
+                                <td>
+                                @Model.DataResult[index,0]
+                                </td>
+                                <td>
+                                    @Model.DataResult[index,1]
+                               </td>
+                            </tr>
+                        }
+                        @if(@Model.DataResult[index,2] != null)
+                        {
+                            <tr>
+                                <td>
+                                @Model.DataResult[index,2]
+                                </td>
+                            </tr>
+                        }
+                    }
+                @*}*@
+            </tbody>
+        </table>
+    </div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
