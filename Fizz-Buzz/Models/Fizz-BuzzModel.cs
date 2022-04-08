@@ -1,4 +1,6 @@
-﻿namespace Fizz_Buzz.Models
+﻿using Fizz_Buzz.infrastructure;
+
+namespace Fizz_Buzz.Models
 {
     public class Fizz_BuzzModel
     {
@@ -19,35 +21,41 @@
         {
             for(int index = 0; index < this.Data.Length; index++)
             {
-                //decimal number = decimal.MinValue;
                 if (this.Data[index] == null)
-                    this.DataResult[index, 0] = "<Empty>";
+                    this.DataResult[index, 0] = Constants.EmptyValue;
                 else
                     this.DataResult[index, 0] = this.Data[index];
                 if (!decimal.TryParse(this.Data[index], out decimal number))
                 {
-                    this.DataResult[index, 1] = "Invalid Item";
+                    this.DataResult[index, 1] = Constants.InvalidItem;
                     continue;
                 }
-                bool is3 = divideBy3(number);
-                bool is5 = divideBy5(number);
-                if (is3 && is5)
-                {
-                    this.DataResult[index, 1] = "FizzBuzz";
-                }else if (is3)
-                {
-                    this.DataResult[index, 1] = "Fizz";
-                } else if (is5)
-                {
-                    this.DataResult[index, 1] = "Buzz";
-                } else
-                {
-                    this.DataResult[index, 1] = $"Divided {number} by 3";
-                    this.DataResult[index, 2] = $"Divided {number} by 5";
-
-                }
+                setResultValue(number, index);
             }
         }
+        void setResultValue(decimal number, int index)
+        {
+            bool is3 = divideBy3(number);
+            bool is5 = divideBy5(number);
+            if (is3 && is5)
+            {
+                this.DataResult[index, 1] = Constants.FizzBuzz;
+            }
+            else if (is3)
+            {
+                this.DataResult[index, 1] = Constants.Fizz;
+            }
+            else if (is5)
+            {
+                this.DataResult[index, 1] = Constants.Buzz;
+            }
+            else
+            {
+                this.DataResult[index, 1] = $"Divided {number} by 3";
+                this.DataResult[index, 2] = $"Divided {number} by 5";
+            }
+        }
+
         public bool divideBy3(decimal number)
         {
             return number % 3 == 0;
