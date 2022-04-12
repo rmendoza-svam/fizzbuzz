@@ -16,33 +16,33 @@
                 </tr>
             </thead>
             <tbody>
-                @for (int index = 0; index < Model?.DataResult?.Length / 3; index++)
+                @for (int index = 0; index < Model?.DataResult.Count(); index++)
                 {
-                    @if(Model.DataResult[index,2] != null)
+                    @if(Model.DataResult[index][2] != null)
                         {
                             <tr>
                                 <td rowspan="2" style="vertical-align:middle">
-                                @Model.DataResult[index,0]
+                                @Model.DataResult[index][0]
                                 </td>
                                 <td>
-                                    @Model.DataResult[index,1]
+                                    @Model.DataResult[index][1]
                                </td>
                             </tr>
                         }else{
                             <tr>
                                 <td>
-                                @Model.DataResult[index,0]
+                                @Model.DataResult[index][0]
                                 </td>
                                 <td>
-                                    @Model.DataResult[index,1]
+                                    @Model.DataResult[index][1]
                                </td>
                             </tr>
                         }
-                        @if(@Model.DataResult[index,2] != null)
+                        @if(@Model.DataResult[index][2] != null)
                         {
                             <tr>
                                 <td>
-                                @Model.DataResult[index,2]
+                                @Model.DataResult[index][2]
                                 </td>
                             </tr>
                         }
