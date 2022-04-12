@@ -18,7 +18,7 @@ namespace FizzBuzz.Tests.Models
             var model = new Fizz_BuzzModel();
             model.Data[0] = "3";
             model.Calculate();
-            Assert.True(model.DataResult[0,1] == Constants.Fizz);
+            Assert.True(model.DataResult[0][1] == Constants.Fizz);
         }
         [Fact]
         public void CalculateFive()
@@ -26,7 +26,7 @@ namespace FizzBuzz.Tests.Models
             var model = new Fizz_BuzzModel();
             model.Data[0] = "5";
             model.Calculate();
-            Assert.True(model.DataResult[0, 1] == Constants.Buzz);
+            Assert.True(model.DataResult[0][1] == Constants.Buzz);
         }
         [Fact]
         public void CalculateFiveAndThree()
@@ -34,14 +34,14 @@ namespace FizzBuzz.Tests.Models
             var model = new Fizz_BuzzModel();
             model.Data[0] = "30";
             model.Calculate();
-            Assert.True(model.DataResult[0, 1] == Constants.FizzBuzz);
+            Assert.True(model.DataResult[0][1] == Constants.FizzBuzz);
         }
         [Fact]
         public void CalculateEmptyValue()
         {
             var model = new Fizz_BuzzModel();
             model.Calculate();
-            Assert.True(model.DataResult[0, 0] == Constants.EmptyValue);
+            Assert.True(model.DataResult[0][0] == Constants.EmptyValue);
         }
         [Fact]
         public void CalculateInvalidItem()
@@ -49,7 +49,7 @@ namespace FizzBuzz.Tests.Models
             var model = new Fizz_BuzzModel();
             model.Data[0] = "A30A";
             model.Calculate();
-            Assert.True(model.DataResult[0, 1] == Constants.InvalidItem);
+            Assert.True(model.DataResult[0][1] == Constants.InvalidItem);
         }
     }
 }
